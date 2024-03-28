@@ -1,0 +1,149 @@
+.left-side {
+    display: flex;
+    width: 40%;
+}
+
+.edit-div {
+    padding: 0 2rem 0 2rem;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    flex-grow: 1;
+    height: 400px;
+}
+
+.personal-div {
+    background-color: var(--third-color);
+    border-radius: 12px;
+    padding: 18px;
+    width: 100%;
+}
+
+.education-div, .experience-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--third-color);
+    border-radius: 12px;
+    padding: 0 0 15px 10px;
+}
+
+.education-div button, .experience-div button {
+    margin-top: 15px;
+    width: 50%;
+}
+
+.rotate img {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.education-div .expand-button,
+.experience-div .expand-button{
+    background: transparent;
+    width: auto;
+}
+
+.education-title, .experience-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.education-title img, .experience-title img {
+    height: 1rem;
+    cursor: pointer;
+}
+
+.input-group input, .input-group textarea {
+    border: 2px solid transparent;
+    border-radius: 12px;
+    padding: 10px;
+    transition: border .25s, box-shadow .25s;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.toggle-div {
+    background-color: var(--third-color);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 12px;
+    color: white;
+    height: 90px;
+}
+
+.toggle-div button {
+    background-color: var(--third-color);
+    color: var(--primary-color);
+}
+
+.toggle-div button:hover {
+    background-color: var(--active-color);
+}
+
+.toggle-div .active-button {
+    background-color: var(--active-color);
+}
+
+.main-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.main-buttons .save{
+    background-color: #1c9648;
+    color: white;
+}
+
+.main-buttons .cancel{
+    background-color: var(--active-color);
+    color: white;
+}
+
+.main-buttons .save:hover{
+    background-color: #22be5c;
+}
+
+.main-buttons .cancel:hover{
+    background-color: #b91c1c;
+}
+
+.education-form button {
+    padding: 0.3em 0.6em;
+}
+
+.education-edit-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.education-edit-title button {
+    margin-top: 0;
+    background-color: transparent;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin-right: 5px;
+}
+
+.education-edit-title img {
+    height: 20px;
+}
