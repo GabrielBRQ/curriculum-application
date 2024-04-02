@@ -1,5 +1,5 @@
 import arrowDownImage from '../assets/img/arrow-down.png';
-import trash from '../assets/img/trash-can.png'
+import trash from '../assets/img/trash-can.png';
 import { useState } from 'react';
 
 function EducationButton({
@@ -12,7 +12,8 @@ function EducationButton({
     onEndChange,
     onLocationChange,
     addEducation,
-    educationArray
+    educationArray,
+    onEducationChange
 }) {
     const [school, setSchool] = useState('');
     const [degree, setDegree] = useState('');
@@ -54,8 +55,15 @@ function EducationButton({
         onEndChange(end);
         onLocationChange(location);
 
-        addEducation(school, degree, start, end, location);
-        toggleAddClicked();
+        if(school !== '' && degree !== '' && start !== '' && end !== '' && location !== ''){
+            addEducation(school, degree, start, end, location);
+            toggleAddClicked();
+            setSchool('');
+            setDegree('');
+            setStart('');
+            setEnd('');
+            setLocation('');
+        }
     };
 
     const verifyInputs = () => {
@@ -65,6 +73,12 @@ function EducationButton({
             setbuttonDisabled(true);
         }
     }
+
+    const removeEducationObject = (index) => {
+        const newArray = [...educationArray];
+        newArray.splice(index, 1);
+        onEducationChange(newArray);
+    };
 
     if (isProjectListVisible) {
         if (isAddClicked) {
@@ -118,7 +132,7 @@ function EducationButton({
                 {educationArray.map((education, index) => (
                     <div key={index} className='education-edit-title'>
                         <h3>{education.school}</h3>
-                        <button aria-label="Delete">
+                        <button aria-label="Delete" onClick={() => removeEducationObject(index)}>
                             <img src={trash} alt="Trash can" />
                         </button>
                     </div>
@@ -138,7 +152,8 @@ export function Education({
     onEndChange,
     onLocationChange,
     addEducation,
-    educationArray
+    educationArray,
+    onEducationChange
 }
 ) {
     const [isProjectListVisible, setIsProjectListVisible] = useState(false);
@@ -171,6 +186,7 @@ export function Education({
                 onLocationChange={onLocationChange}
                 addEducation={addEducation}
                 educationArray={educationArray}
+                onEducationChange={onEducationChange}
             />
         </div>
     )

@@ -3,7 +3,7 @@
     width: 40%;
 }
 
-.edit-div {
+.edit-div, .custom-div {
     padding: 0 2rem 0 2rem;
     background-color: var(--secondary-color);
     display: flex;
@@ -146,4 +146,87 @@
 
 .education-edit-title img {
     height: 20px;
+}
+
+.layout {
+    background-color: var(--third-color);
+    border-radius: 12px;
+    padding: 18px;
+    width: 100%;
+    height: 150px;
+}
+
+.top-visual {
+    background: linear-gradient(180deg, #124888 50%, #fff 50%);
+}
+
+.left-visual {
+    background: linear-gradient(90deg, #124888 50%, #fff 50%);
+}
+
+.visual {
+    border: 1px solid gray;
+    border-radius: 8px;
+    height: 50px;
+    width: 50px;
+}
+
+.col-buttons {
+    margin-top: 20px;
+}
+
+.col-buttons button{
+    background: transparent;
+    color:white;
+}
+
+.col-buttons .active-button {
+    background-color: var(--active-color);
+}
+
+input[type=color] {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    box-shadow: 0 8px 24px #454546;
+    cursor: pointer;
+    height: 32px;
+    padding: 0;
+    width: 32px;
+}
+
+.accent-color {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 17px;
+    gap: 8px;
+}
+
+.color-div {
+    background-color: var(--third-color);
+    border-radius: 12px;
+    padding: 18px;
+    width: 100%;
+    height: 85px;
+}
+
+@media only screen and (max-width: 1180px) {
+    .left-side {
+        display: flex;
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1380px) {
+    .toggle-div {
+       height: 125px;
+       justify-content: center;
+    }
+}
+
+@media only screen and (min-width: 1450px) {
+    .personal-div, .education-div, .experience-div {
+        max-width: 950px;
+    }
 }

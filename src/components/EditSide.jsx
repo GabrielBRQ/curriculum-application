@@ -13,7 +13,11 @@ export function Edit({
     onEndChange,
     onLocationChange,
     addEducation,
-    educationArray
+    addExperience,
+    educationArray,
+    experienceArray,
+    onExperienceChange,
+    onEducationChange
 }) {
     return (
         <div className="edit-div">
@@ -31,8 +35,18 @@ export function Edit({
                 onLocationChange={onLocationChange}
                 addEducation={addEducation}
                 educationArray={educationArray}
+                onEducationChange={onEducationChange}
             />
-            <Experience />
+            <Experience
+                onSchoolChange={onSchoolChange}
+                onDegreeChange={onDegreeChange}
+                onStartChange={onStartChange}
+                onEndChange={onEndChange}
+                onLocationChange={onLocationChange}
+                addExperience={addExperience}
+                experienceArray={experienceArray}
+                onExperienceChange={onExperienceChange}
+            />
         </div>
     )
 }

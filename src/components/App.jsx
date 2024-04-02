@@ -14,6 +14,13 @@ export function App() {
   const [curriculumEnd, setCurriculumend] = useState('');
   const [curriculumLocation, setCurriculumlocation] = useState('');
   const [educationArray, setEducationArray] = useState([]);
+  const [experienceArray, setExperienceArray] = useState([]);
+  const [isTop, setIsTop] = useState(true);
+  const [selectedColor, setSelectedColor] = useState('#124888');
+
+  const handleColorChange = (color) => {
+    setSelectedColor(color);
+  };
 
   const handleSettingsChange = (newName) => {
     setCurriculumname(newName);
@@ -51,6 +58,18 @@ export function App() {
     setCurriculumlocation(newLocation);
   };
 
+  const handleEducation = (newArray) => {
+    setEducationArray(newArray);
+  };
+
+  const handleExperience = (newArray) => {
+    setExperienceArray(newArray);
+  };
+
+  const toggleIsTop = () => {
+    setIsTop(!isTop);
+  };
+
   const addEducation = (schoolValue, degreeValue, startValue, endValue, locationValue) => {
     const newObject = {
       school: schoolValue,
@@ -63,6 +82,19 @@ export function App() {
     setEducationArray([...educationArray, newObject]);
   }
 
+  const addExperience = (companyValue, positionValue, startValue, endValue, descriptionValue) => {
+    const newObject = {
+      company: companyValue,
+      position: positionValue,
+      start: startValue,
+      end: endValue,
+      description: descriptionValue
+    };
+
+    setExperienceArray([...experienceArray, newObject]);
+  }
+
+
   return (
     <div className="container">
       <Settings 
@@ -74,9 +106,16 @@ export function App() {
         onDegreeChange={handleDegree} 
         onStartChange={handleStart} 
         onEndChange={handleEnd} 
-        onLocationChange={handleLocation}
+        onLocationChange={handleLocation}        
         addEducation={addEducation}
+        addExperience={addExperience}
         educationArray={educationArray}
+        experienceArray={experienceArray}
+        onEducationChange={handleEducation}
+        onExperienceChange={handleExperience}
+        handleColorChange={handleColorChange}
+        selectedColor={selectedColor}
+        toggleIsTop = {toggleIsTop}
       />
       <Curriculum 
         name={curriculumName} 
@@ -84,6 +123,9 @@ export function App() {
         address={curriculumAddress} 
         phone={curriculumPhone} 
         educationArray={educationArray}
+        experienceArray={experienceArray}
+        selectedColor={selectedColor}
+        isTop={isTop}
       />
     </div>
   )
